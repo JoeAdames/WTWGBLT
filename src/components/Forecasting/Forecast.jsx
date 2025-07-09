@@ -40,7 +40,7 @@ export default function Forecast() {
   return (
     <div className='flex flex-col '>
       <button onClick={toggleForeCastType}>Forecast-Type: {foreCastType} </button>
-        {foreCastType == "short" ? <ShortForecast current={data.properties.periods[0]} later={data.properties.periods[1]}/> : <LongForcast data={data} /> }
+        {foreCastType == "Today" ? <ShortForecast current={data.properties.periods[0]} later={data.properties.periods[1]}/> : <LongForcast data={data} /> }
     </div>
   )
 }
