@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import SingleCard from './SingleCard'
+import LongForcast from './LongForcast';
+import ShortForecast from './ShortForecast';
+import { useForeCastType } from '../../context/ForecastContext';
+
 
 export default function Forecast() {
+  const {foreCastType, toggleForeCastType} = useForeCastType();
 
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -35,9 +39,8 @@ export default function Forecast() {
 
   return (
     <div className='flex flex-col '>
-        {data.properties.periods.map((chunk) => (
-          <SingleCard key={chunk.number} data={chunk} />
-        ))}
+      <button onClick={toggleForeCastType}>Forecast-Type: {foreCastType} </button>
+        {foreCastType == "short" ? <ShortForecast current={data.properties.periods[0]} later={data.properties.periods[1]}/> : <LongForcast data={data} /> }
     </div>
   )
 }
