@@ -1,20 +1,42 @@
-import React, { useState, useContext, createContext  } from 'react';
+import React, { useState, useContext, createContext, useEffect } from 'react';
 
 
 const ForeCastContext = createContext();
 
-export const ForeCastProvider = ({children}) => {
-    const [foreCastType, setForeCastType] = useState("Today");
+export const ForeCastProvider = ({ children }) => {
+    const [url, setUrl] = useState("https://api.weather.gov/gridpoints/OKX/33,35/forecast");
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true)
 
-    const toggleForeCastType = () => setForeCastType((prev) => prev === "Today" ? "Weekly" : "Today");
+    useEffect(() => {
+        async function fetchForecasts() {
+            try {
+                const res = await fetch(`${url}`, {
+                    method: 'GET',
+                    headers: {
+                        'User-Agent': 'wtwgblt (jadames14@gmail.com)'
+                    }
+                });
+                const data = await res.json();
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                setData(data.properties)
+            } catch (err) {
+                setError(err)
+            } finally {
+                setLoading(false)
+            }
+        }
+        fetchForecasts();
+    }, [url])
 
     return (
-        <ForeCastContext.Provider value={{foreCastType, toggleForeCastType}}>
-            <div>
-                {children}
-            </div>
+        <ForeCastContext.Provider value={{ data, error, loading, url, setUrl }}>
+            {children}
         </ForeCastContext.Provider>
     )
 }
 
-export const useForeCastType = () => useContext(ForeCastContext);
+export const useForeCast = () => useContext(ForeCastContext);
