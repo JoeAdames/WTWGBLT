@@ -6,9 +6,9 @@ export default function StoredLocations() {
   const { badges } = useBadges();
     
   return (
-    <div className='flex items-center max-w-sm mx-auto my-2 md:'>
+    <div className='flex items-center max-w-sm mx-auto my-2'>
         {badges.map((badge, index) => (
-            <LocationBadge key={index} badgeName={badge.name}/>
+            <LocationBadge key={index} badgeName={badge.name} url={badge.url}/>
             ))}
     </div>
   )
