@@ -3,7 +3,7 @@ import SingleCard from '../SingleCard'
 
 export default function ShortForecast({current, later}) {
   return (
-    <div>
+    <div className=''>
       <SingleCard data={current} />
       <SingleCard data={later} />
     </div>

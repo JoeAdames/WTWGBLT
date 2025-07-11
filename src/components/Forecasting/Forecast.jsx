@@ -13,7 +13,7 @@ export default function Forecast() {
   if(error) return <div>Error: {error.message}</div>
 
   return (
-    <div className='flex flex-col '>
+    <div className='flex flex-col items-center'>
       <button onClick={toggleForeCastType}>Forecast-Type: {foreCastType} </button>
         {foreCastType == "Today" ? <ShortForecast current={data.periods[0]} later={data.periods[1]}/> : <LongForcast data={data.periods} /> }
     </div>
