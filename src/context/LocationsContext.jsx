@@ -33,7 +33,7 @@ export const LocationProvider = ({children}) => {
                 const pointsRes = await fetch(`https://api.weather.gov/points/${lat},${lon}`, {
                             method: 'GET',
                             headers: {
-                            'User-Agent': 'wtwgblt (jadames14@gmail.com)'
+                            'User-Agent': 'wtwgblt (hughjarms1423@gmail.com)'
                             }
                         });
                 const pointsData = await pointsRes.json();
