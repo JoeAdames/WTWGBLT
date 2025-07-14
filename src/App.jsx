@@ -10,7 +10,7 @@ import { ForeCastProvider } from './context/ForecastContext.jsx';
 function App() {
 
   return (
-    <>
+    <div>
     <ThemeProvider>
       <ForeCastProvider>
       <ForeCastTypeProvider>
@@ -22,7 +22,7 @@ function App() {
       </ForeCastTypeProvider>
       </ForeCastProvider>
     </ThemeProvider>
-    </>
+    </div>
   )
 }
 

@@ -5,12 +5,14 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({children}) => {
     const [isDayTime, setIsDayTime] = useState(null)
+    
+    const [theme, setTheme] = useState('light');
 
-    // const toggleTheme = () => setTheme((prev) => prev === "light" ? "dark" : "light");
-
+    const toggleTheme = () => setTheme((prev) => prev === "light" ? "dark" : "light");
+    // isDayTime ? 'light' : 'dark'
     return (
-        <ThemeContext.Provider value={{isDayTime, setIsDayTime}}>
-        <div className={isDayTime === false ? "bg-gray-800 text-white min-h-screen" : "bg-white text-black min-h-screen"}>
+        <ThemeContext.Provider value={{isDayTime, setIsDayTime, toggleTheme}}>
+        <div data-theme={theme}>
             {children}
         </div>
         </ThemeContext.Provider>

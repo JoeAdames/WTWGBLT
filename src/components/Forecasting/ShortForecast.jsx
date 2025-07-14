@@ -1,11 +1,11 @@
 import React from 'react'
-import SingleCard from '../SingleCard'
+import Card from './ForecastCard/Card'
 
 export default function ShortForecast({current, later}) {
   return (
-    <div className=''>
-      <SingleCard data={current} />
-      <SingleCard data={later} />
-    </div>
+    <>
+      <Card data={current} />
+      <Card data={later} />
+    </>
   )
 }

@@ -12,8 +12,8 @@ export default function Dashboard() {
     
 
   return (
-    <div className={`bg-${theme} container`}>
-    {/* <Toggle handleClick={toggleTheme} current={theme} style={'flex justify-end max-w-xl mx-auto'}/> */}
+    <div className="bg-slate-50 dark:bg-slate-900">
+    <Toggle handleClick={toggleTheme} current={theme} style={'flex justify-end max-w-xl mx-auto'}/>
     <Locations />
     <Forecast  />
     </div>
