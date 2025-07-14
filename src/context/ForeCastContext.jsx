@@ -1,5 +1,6 @@
 import React, { useState, useContext, createContext, useEffect } from 'react';
-
+import { useTheme } from "../context/ThemeContext"
+ 
 
 const ForeCastContext = createContext();
 
@@ -8,6 +9,7 @@ export const ForeCastProvider = ({ children }) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true)
+    const { setIsDayTime } = useTheme();
 
     useEffect(() => {
         async function fetchForecasts() {
@@ -23,6 +25,7 @@ export const ForeCastProvider = ({ children }) => {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
                 setData(data.properties)
+                setIsDayTime(data.properties.periods[0].isDaytime);
             } catch (err) {
                 setError(err)
             } finally {

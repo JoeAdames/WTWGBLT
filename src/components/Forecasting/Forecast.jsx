@@ -10,6 +10,7 @@ export default function Forecast() {
   const {foreCastType, toggleForeCastType} = useForeCastType();
   const {data, loading, error } = useForeCast();
 
+
   if(loading) return <div>Loading...</div>;
   if(error) return <div>Error: {error.message}</div>
 
