@@ -10,9 +10,7 @@ export const ForeCastTypeProvider = ({children}) => {
 
     return (
         <ForeCastTypeContext.Provider value={{foreCastType, toggleForeCastType}}>
-            <div>
                 {children}
-            </div>
         </ForeCastTypeContext.Provider>
     )
 }
