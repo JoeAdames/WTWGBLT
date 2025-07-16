@@ -8,7 +8,7 @@ export default function Dashboard() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen p-2 bg-linear-to-t from-blue-300 via-blue-400 to-blue-600 dark:from-gray-700 dark:via-gray-900 dark:to-black">
+    <div className="min-h-screen p-2 bg-linear-to-t from-cyan-500 via-blue-400 to-blue-600 dark:from-gray-700 dark:via-gray-900 dark:to-black">
       <Toggle handleClick={toggleTheme} current={theme} />
       <Locations />
       <Forecast />

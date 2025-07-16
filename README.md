@@ -73,3 +73,9 @@ Night: Soft night time colors dark blues and purples dynamic star background
 | **Muted Text** | `#9CA3AF` | `text-slate-400`                    |
 | **Borders**    | `#374151` | `border-slate-700`                  |
 | **Buttons**    | `#374785` | `bg-indigo-800 hover:bg-indigo-700` |
+
+Day Theme = bg-linear-to-t from-cyan-500 via-blue-400 to-blue-600
+
+Night Theme = dark:from-gray-700 dark:via-gray-900 dark:to-black
+
+EST. Kanban
