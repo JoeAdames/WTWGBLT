@@ -7,7 +7,7 @@ const LocationContext = createContext();
 export const LocationProvider = ({ children }) => {
   const [location, setLocation] = useState("New York City");
   const { setUrl } = useForeCast();
-  const { badges, setBadges } = useBadges();
+  const { badges, setBadges, updateOrAddBadge } = useBadges();
 
   async function getLocationData() {
     const res = await fetch(
@@ -20,14 +20,13 @@ export const LocationProvider = ({ children }) => {
     return {
       lat: data[0].lat,
       lon: data[0].lon,
-      name: data[0].name,
     };
   }
 
   useEffect(() => {
     async function getForeCastUrl() {
       try {
-        const { lon, lat, name } = await getLocationData();
+        const { lon, lat } = await getLocationData();
 
         const pointsRes = await fetch(
           `https://api.weather.gov/points/${lat},${lon}`,
@@ -41,16 +40,13 @@ export const LocationProvider = ({ children }) => {
         const pointsData = await pointsRes.json();
         const forecastUrl = pointsData.properties.forecast;
 
-        setBadges([
-          {
-            lon: lon,
-            lat: lat,
-            name: location,
-            url: forecastUrl,
-            selected: null,
-          },
-          ...badges,
-        ]);
+        updateOrAddBadge({
+          lon: lon,
+          lat: lat,
+          name: location,
+          url: forecastUrl,
+          selected: true,
+        });
         setUrl(forecastUrl);
       } catch (err) {
         console.log(err);
