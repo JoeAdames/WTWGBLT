@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useForeCast } from "../../context/ForecastContext";
+import { useForeCast } from "../../context/ForeCastContext";
 import { useBadges } from "../../context/BadgeContext";
 
 export default function LocationBadge({ badgeName, url, selected }) {
