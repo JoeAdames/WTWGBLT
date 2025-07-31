@@ -1,6 +1,6 @@
 import React, { useState, useContext, createContext, useEffect } from "react";
 import { useBadges } from "./BadgeContext";
-import { useForeCast } from "./ForecastContext";
+import { useForeCast } from "./ForeCastContext";
 
 const LocationContext = createContext();
 
