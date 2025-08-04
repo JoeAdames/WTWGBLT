@@ -6,6 +6,7 @@ import { ForeCastTypeProvider } from "./context/ForeCastTypeContext.jsx";
 import { LocationProvider } from "./context/LocationsContext.jsx";
 import { BadgeProvider } from "./context/BadgeContext.jsx";
 import Dashboard from "./pages/Dashboard";
+import Header from "./components/Header.jsx";
 
 function App() {
   return (

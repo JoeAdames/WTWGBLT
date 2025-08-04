@@ -20,12 +20,9 @@ export default function Filter({ badges, onSetBadges }) {
   };
 
   return (
-    <form
-      className="flex justify-center max-w-sm mx-auto my-2"
-      onSubmit={handleSubmit}
-    >
+    <form className="flex justify-center" onSubmit={handleSubmit}>
       <label className="sr-only">Search</label>
-      <div className="relative w-full">
+      <div className="">
         <input
           type="text"
           id="simple-search"

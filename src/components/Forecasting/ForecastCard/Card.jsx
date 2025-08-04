@@ -16,23 +16,27 @@ const Card = ({ data }) => {
     windDirection,
   } = data;
   return (
-    <div className="bg-slate-50/15 text-slate-400 items-between rounded-xl p-2 border border-slate-200 dark:border-slate-700 my-2 sm:min-w-lg ">
-      <div className="flex justify-between items-center my-2">
-        <div className="text-white text-lg">{name}</div>
+    <div className="flex flex-col gap-y-5">
+      <div className="flex justify-between items-center sm:gap-x-10">
+        <div className="text-white text-3xl font-bold tracking-tight leading-snug">
+          {name}
+        </div>
         <div className="flex justify-evenly">
-          <div className="flex items-center text-white text-xl justify-end">
+          <div className="flex items-center text-white text-xl font-light justify-end">
             <WiThermometer size={20} color={"white"} />
             {temperature}
             {/* <WiDegrees size={30} /> */}
             {temperatureUnit}
           </div>
-          <div className="flex text-white items-center justify-end text-xl">
+          <div className="flex text-white items-center justify-end text-xl font-light">
             <WiRaindrop size={30} color={"cyan"} />
             {probabilityOfPrecipitation.value}%
           </div>
         </div>
       </div>
-      <div className="text-white mb-5 text-lg w-90">{shortForecast}</div>
+      <div className="text-white mb-5 text-lg font-light sm:w-90">
+        {shortForecast}
+      </div>
     </div>
   );
 };
